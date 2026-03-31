@@ -4,9 +4,8 @@ import React from "react";
 import { healthcareFocus } from "@/lib/data";
 import SectionLabel from "./SectionLabel";
 import AnimatedReveal from "./AnimatedReveal";
-import DNAHelix from "./DNAHelix";
 
-const iconMap: Record<string, React.ReactNode> = {
+const icons: Record<string, React.ReactNode> = {
   stethoscope: (
     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3" />
@@ -44,8 +43,6 @@ const iconMap: Record<string, React.ReactNode> = {
 export default function HealthcareSection() {
   return (
     <section id="healthcare" className="section-padding relative overflow-hidden">
-      <DNAHelix className="absolute left-0 top-0 w-[80px] h-[500px]" />
-
       <div className="container-main relative z-10">
         <SectionLabel number="02" title="Path to Medicine" />
 
@@ -61,15 +58,13 @@ export default function HealthcareSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {healthcareFocus.map((item, index) => (
             <AnimatedReveal key={item.title} delay={0.15 + index * 0.1}>
-              <motion.div
-                className="group border border-border rounded-sm p-8 md:p-10 hover:border-accent/40 transition-all duration-500 relative overflow-hidden"
+              <div
+                className="group border border-border rounded-sm p-8 md:p-10 hover:border-accent/40 transition-all duration-500 hover:-translate-y-0.5 relative overflow-hidden"
                 style={{ background: "rgba(14, 42, 28, 0.5)" }}
-                whileHover={{ y: -2 }}
-                transition={{ duration: 0.3 }}
               >
                 <div className="flex items-center justify-between mb-6">
                   <div className="text-accent group-hover:text-accent-hover transition-colors duration-500">
-                    {iconMap[item.icon]}
+                    {icons[item.icon]}
                   </div>
                   <span className="font-mono text-caption uppercase text-accent-secondary bg-accent-secondary/10 px-3 py-1 rounded-sm border border-accent-secondary/20">
                     {item.status}
@@ -83,7 +78,7 @@ export default function HealthcareSection() {
                 <p className="text-body text-text-secondary leading-relaxed">
                   {item.description}
                 </p>
-              </motion.div>
+              </div>
             </AnimatedReveal>
           ))}
         </div>

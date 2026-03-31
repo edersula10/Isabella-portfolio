@@ -1,12 +1,12 @@
 "use client";
 
-import { motion } from "framer-motion";
+import React from "react";
 import { healthcareFocus } from "@/lib/data";
 import SectionLabel from "./SectionLabel";
 import AnimatedReveal from "./AnimatedReveal";
 import DNAHelix from "./DNAHelix";
 
-const iconMap: Record<string, JSX.Element> = {
+const iconMap: Record<string, React.ReactNode> = {
   stethoscope: (
     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3" />
